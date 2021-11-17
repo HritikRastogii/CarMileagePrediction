@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MPG prediction usecase</title>
+    <style>
+    #sub{
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    border: 2px solid white;
+    text-align: center;
+    transform: 
+    translate(-50%,-60%);
+    background: linear-gradient(to left,aqua,pink);
+    font-size: 30px;
+    font-weight: 800;
+    transition: 1s;
+    }
+    input:hover {
+        background: linear-gradient(to left,aqua,pink);
+        color:black;
+        font-weight: 800;
+        transition: 0.5s;
+        font-family: monospace;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+    </style>
+</head>
+ <body style="background-image: url('/static/img/Car.jpeg');background-repeat:no-repeat;background-size: cover">
+    {{a}}
+    <h2 style="text-align:center;color:white">CHECK THE MILEAGE OF YOUR CAR INSTANTLY</h2>
+
+    <h3 style="text-align:center;color:white">Please Enter The Details:</h3>
+    <br>
+    <form style="text-align:center" method="post" enctype="multipart/form-data" action="predictMPG">
+ {% csrf_token %}
+ <div class="col-md-4 col-sm-4"><label for="fname" style="font-weight:bold;color:white">Cylinders:</label> </div> <input name="cylinderVal" type="text" value=8 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname" style="font-weight:bold;color:white">Displacement:</label> </div> <input type="text" id="lname" name="dispVal" value=307 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="fname" style="font-weight:bold;color:white">Horsepower:</label> </div> <input type="text" id="fname" name="hrsPwrVal" value=130 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname" style="font-weight:bold;color:white">Weight:</label> </div> <input type="text" id="lname" name="weightVal" value=3504 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="fname" style="font-weight:bold;color:white">Acceleration:</label></div>  <input type="text" id="fname" name="accVal" value=12 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname" style="font-weight:bold;color:white">Model:</label> </div> <input type="text" id="lname" name="modelVal" value=70 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <div class="col-md-4 col-sm-4"><label for="lname" style="font-weight:bold;color:white">Origin:</label> </div> <input type="text" id="lname" name="originVal" value=1 style="text-align:center;border-radius:30px;background: linear-gradient(to left,aqua,pink)"><br><br>
+ <br>
+ <br>
+ <input type="submit" value="Submit" id="sub"}"/></div>
+ 
+</form>
+<br>
+{%  if scoreval  %}
+<h1 style="text-align:center;color:white">Your Mileage Per Gallon Score Is {{scoreval}}</h1>
+{% endif %}
+</body>
+</html>
